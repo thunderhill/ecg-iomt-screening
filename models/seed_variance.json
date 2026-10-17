@@ -1,0 +1,70 @@
+{
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "note": "DS2 metrics per training seed; spread shows run-to-run variance.",
+  "models": {
+    "cnn": {
+      "runs": [
+        {
+          "seed": 1,
+          "macro_f1": 0.42625309977196996,
+          "N_sensitivity": 0.963733042470516,
+          "S_sensitivity": 0.012651265126512651,
+          "V_sensitivity": 0.8704530950861519,
+          "F_sensitivity": 0.0
+        },
+        {
+          "seed": 2,
+          "macro_f1": 0.5323146485314303,
+          "N_sensitivity": 0.958756561456132,
+          "S_sensitivity": 0.28437843784378436,
+          "V_sensitivity": 0.8580089342693044,
+          "F_sensitivity": 0.002617801047120419
+        },
+        {
+          "seed": 3,
+          "macro_f1": 0.5627241362418304,
+          "N_sensitivity": 0.9943190856000181,
+          "S_sensitivity": 0.25357535753575355,
+          "V_sensitivity": 0.8809827696234843,
+          "F_sensitivity": 0.0
+        }
+      ],
+      "macro_f1_mean": 0.5070972948484102,
+      "macro_f1_std": 0.07164511249115593
+    },
+    "hybrid": {
+      "runs": [
+        {
+          "seed": 1,
+          "macro_f1": 0.5821957434708739,
+          "N_sensitivity": 0.973436044265685,
+          "S_sensitivity": 0.27887788778877887,
+          "V_sensitivity": 0.9326738991703892,
+          "F_sensitivity": 0.10471204188481675
+        },
+        {
+          "seed": 2,
+          "macro_f1": 0.5446751977464022,
+          "N_sensitivity": 0.9737314518144841,
+          "S_sensitivity": 0.2403740374037404,
+          "V_sensitivity": 0.8902361199744735,
+          "F_sensitivity": 0.010471204188481676
+        },
+        {
+          "seed": 3,
+          "macro_f1": 0.566599677081876,
+          "N_sensitivity": 0.9865248710432432,
+          "S_sensitivity": 0.2601760176017602,
+          "V_sensitivity": 0.9365028717294193,
+          "F_sensitivity": 0.0
+        }
+      ],
+      "macro_f1_mean": 0.5644902060997173,
+      "macro_f1_std": 0.018849011611593067
+    }
+  }
+}

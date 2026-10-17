@@ -1,0 +1,12 @@
+data/
+.venv/
+__pycache__/
+*.egg-info/
+firmware/esp32_ecg_logger/config.h
+web/node_modules/
+web/dist/
+
+secrets/
+firmware/esp32_ecg_logger/ca_cert.h
+.pytest_cache/
+.ruff_cache/

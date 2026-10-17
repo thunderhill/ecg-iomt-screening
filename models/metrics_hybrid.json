@@ -1,0 +1,90 @@
+{
+  "test": {
+    "classes": [
+      "N",
+      "S",
+      "V",
+      "F"
+    ],
+    "n": 49341,
+    "accuracy": 0.9249508522324233,
+    "balanced_accuracy": 0.7328688041209781,
+    "macro_f1": 0.6539121548092663,
+    "per_class": {
+      "N": {
+        "precision": 0.9753703834143364,
+        "sensitivity": 0.9439861840161793,
+        "specificity": 0.8033370828646419,
+        "f1": 0.9594216956511697,
+        "support": 44007,
+        "roc_auc_ovr": 0.9558495840927377
+      },
+      "S": {
+        "precision": 0.5988483685220729,
+        "sensitivity": 0.5148514851485149,
+        "specificity": 0.9868063884855754,
+        "f1": 0.5536823425022183,
+        "support": 1818,
+        "roc_auc_ovr": 0.9336554817866316
+      },
+      "V": {
+        "precision": 0.9166408428881314,
+        "sensitivity": 0.9438417358008935,
+        "specificity": 0.9941783712424525,
+        "f1": 0.9300424461562647,
+        "support": 3134,
+        "roc_auc_ovr": 0.9972990911890637
+      },
+      "F": {
+        "precision": 0.10306122448979592,
+        "sensitivity": 0.5287958115183246,
+        "specificity": 0.9640924038481178,
+        "f1": 0.17250213492741248,
+        "support": 382,
+        "roc_auc_ovr": 0.9412821541349536
+      }
+    },
+    "confusion_matrix": [
+      [
+        41542,
+        594,
+        131,
+        1740
+      ],
+      [
+        831,
+        936,
+        43,
+        8
+      ],
+      [
+        133,
+        33,
+        2958,
+        10
+      ],
+      [
+        85,
+        0,
+        95,
+        202
+      ]
+    ],
+    "roc_auc_ovr_macro": 0.9570215778008466
+  },
+  "cv_macro_f1": {
+    "mean": null,
+    "std": null,
+    "folds": [],
+    "note": "not run for this model (CPU budget); early stopping used 4 DS1 validation records"
+  },
+  "fit_seconds": 6.602927650999845,
+  "latency": {
+    "single_beat_median_ms": 0.3932095005438896,
+    "note": "single-threaded, on the training machine's CPU"
+  },
+  "size_bytes": 1125719,
+  "n_train": 50564,
+  "n_test": 49341,
+  "caveat": "Embeddings for training beats come from the CNN trained on those beats; DS2 stays unseen."
+}

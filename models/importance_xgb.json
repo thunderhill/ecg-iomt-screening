@@ -1,0 +1,146 @@
+{
+  "method": "permutation importance (drop in macro-F1 on held-out DS2 beats)",
+  "n_samples": 6003,
+  "n_repeats": 5,
+  "baseline_macro_f1": 0.5107700499837571,
+  "permutation": [
+    {
+      "feature": "rr_ratio",
+      "mean": 0.03806333777950649,
+      "std": 0.003906805548279336
+    },
+    {
+      "feature": "rr_prev_s",
+      "mean": 0.03443748173675607,
+      "std": 0.008901387767811556
+    },
+    {
+      "feature": "template_corr",
+      "mean": 0.02967934577014153,
+      "std": 0.00514191010416366
+    },
+    {
+      "feature": "qrs_energy",
+      "mean": 0.023442810050386908,
+      "std": 0.0012266900508053663
+    },
+    {
+      "feature": "r_amp_mv",
+      "mean": 0.017638973286817527,
+      "std": 0.0011635617663163043
+    },
+    {
+      "feature": "s_amp_mv",
+      "mean": 0.017196103100730442,
+      "std": 0.006931101689670182
+    },
+    {
+      "feature": "local_noise_mv",
+      "mean": 0.013468197216790444,
+      "std": 0.0029196352729206265
+    },
+    {
+      "feature": "hr_local_bpm",
+      "mean": 0.010696396433530176,
+      "std": 0.004924359782332986
+    },
+    {
+      "feature": "rr_local_mean_s",
+      "mean": 0.010278973888576948,
+      "std": 0.005027446617911121
+    },
+    {
+      "feature": "rr_local_std_s",
+      "mean": 0.009170348424952336,
+      "std": 0.002300109508447134
+    },
+    {
+      "feature": "rr_prev2_s",
+      "mean": 0.006979426349231222,
+      "std": 0.003238544823486524
+    },
+    {
+      "feature": "q_amp_mv",
+      "mean": 0.004899199681886501,
+      "std": 0.004588515671328573
+    },
+    {
+      "feature": "qrs_width_s",
+      "mean": 0.0008398907421224954,
+      "std": 0.00216287501904943
+    },
+    {
+      "feature": "rr_local_rmssd_s",
+      "mean": -0.004275058267059451,
+      "std": 0.004092007416037713
+    },
+    {
+      "feature": "post_r_max_mv",
+      "mean": -0.008866857742258172,
+      "std": 0.005093767586381663
+    }
+  ],
+  "impurity": [
+    {
+      "feature": "qrs_width_s",
+      "value": 0.16323083639144897
+    },
+    {
+      "feature": "rr_prev_s",
+      "value": 0.1366819143295288
+    },
+    {
+      "feature": "rr_local_mean_s",
+      "value": 0.12391585856676102
+    },
+    {
+      "feature": "rr_ratio",
+      "value": 0.09049086272716522
+    },
+    {
+      "feature": "template_corr",
+      "value": 0.0900426134467125
+    },
+    {
+      "feature": "r_amp_mv",
+      "value": 0.08031226694583893
+    },
+    {
+      "feature": "hr_local_bpm",
+      "value": 0.07257349044084549
+    },
+    {
+      "feature": "post_r_max_mv",
+      "value": 0.06966236978769302
+    },
+    {
+      "feature": "qrs_energy",
+      "value": 0.04186832532286644
+    },
+    {
+      "feature": "local_noise_mv",
+      "value": 0.03252173960208893
+    },
+    {
+      "feature": "rr_local_rmssd_s",
+      "value": 0.024186383932828903
+    },
+    {
+      "feature": "s_amp_mv",
+      "value": 0.023712608963251114
+    },
+    {
+      "feature": "rr_local_std_s",
+      "value": 0.01863379403948784
+    },
+    {
+      "feature": "q_amp_mv",
+      "value": 0.016097426414489746
+    },
+    {
+      "feature": "rr_prev2_s",
+      "value": 0.016069501638412476
+    }
+  ],
+  "note": "Importance reflects model reliance on a feature, not a causal or physiological mechanism."
+}

@@ -1,0 +1,151 @@
+{
+  "test": {
+    "classes": [
+      "N",
+      "S",
+      "V",
+      "F"
+    ],
+    "n": 49341,
+    "accuracy": 0.7741634745951642,
+    "balanced_accuracy": 0.7133910198205494,
+    "macro_f1": 0.5960386853616684,
+    "per_class": {
+      "N": {
+        "precision": 0.977578346761476,
+        "sensitivity": 0.7747631058695208,
+        "specificity": 0.8533933258342707,
+        "f1": 0.8644338522387303,
+        "support": 44007,
+        "roc_auc_ovr": 0.908502694235959
+      },
+      "S": {
+        "precision": 0.6647546207775653,
+        "sensitivity": 0.5737073707370737,
+        "specificity": 0.9889316751888559,
+        "f1": 0.6158842633599055,
+        "support": 1818,
+        "roc_auc_ovr": 0.9501026507759881
+      },
+      "V": {
+        "precision": 0.815326995102276,
+        "sensitivity": 0.9029993618379069,
+        "specificity": 0.9861276429978142,
+        "f1": 0.8569265707797123,
+        "support": 3134,
+        "roc_auc_ovr": 0.9870900238071599
+      },
+      "F": {
+        "precision": 0.02440577249575552,
+        "sensitivity": 0.6020942408376964,
+        "specificity": 0.8122102167119426,
+        "f1": 0.04691005506832552,
+        "support": 382,
+        "roc_auc_ovr": 0.8227930646959754
+      }
+    },
+    "confusion_matrix": [
+      [
+        34095,
+        381,
+        462,
+        9069
+      ],
+      [
+        646,
+        1043,
+        46,
+        83
+      ],
+      [
+        118,
+        144,
+        2830,
+        42
+      ],
+      [
+        18,
+        1,
+        133,
+        230
+      ]
+    ],
+    "roc_auc_ovr_macro": 0.9171221083787706
+  },
+  "cv_macro_f1": {
+    "mean": null,
+    "std": null,
+    "folds": [],
+    "note": "not run for this model (CPU budget); early stopping used 4 DS1 validation records"
+  },
+  "fit_seconds": 9.708454157998858,
+  "latency": {
+    "single_beat_median_ms": 0.10298750021320302,
+    "note": "single-threaded, on the training machine's CPU"
+  },
+  "size_bytes": 33140,
+  "n_train": 50564,
+  "n_test": 49341,
+  "training_history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.6431627656757702,
+      "val_macro_f1": 0.32146437679494605,
+      "seconds": 0.8314261060004355
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.2882712050963189,
+      "val_macro_f1": 0.32599724468650004,
+      "seconds": 0.8311214109999128
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.2073963662581126,
+      "val_macro_f1": 0.31224423747367436,
+      "seconds": 1.005649827000525
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.1748388531908054,
+      "val_macro_f1": 0.31174592103237636,
+      "seconds": 0.9013154669992218
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.1526630937550721,
+      "val_macro_f1": 0.3007398558738558,
+      "seconds": 0.9310823970008641
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.1429880363627179,
+      "val_macro_f1": 0.3534819977309376,
+      "seconds": 0.9225576359986007
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.13168507342472605,
+      "val_macro_f1": 0.30414963961661534,
+      "seconds": 0.9071163680000609
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.12353571916263292,
+      "val_macro_f1": 0.29060604591765904,
+      "seconds": 1.038909519000299
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.11768167535006628,
+      "val_macro_f1": 0.2892085294868851,
+      "seconds": 0.893885337998654
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.10643373851415583,
+      "val_macro_f1": 0.2893652983148117,
+      "seconds": 0.8778870559999632
+    }
+  ]
+}

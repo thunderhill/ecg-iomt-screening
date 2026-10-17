@@ -1,0 +1,1337 @@
+{
+  "generated_at": 1792218588.6926875,
+  "dataset": {
+    "name": "MIT-BIH Arrhythmia Database",
+    "split": "DS1 (train) / DS2 (test), record-wise = patient-wise (de Chazal 2004)",
+    "fs": 250.0,
+    "lead": "MLII",
+    "classes": [
+      "N",
+      "S",
+      "V",
+      "F"
+    ],
+    "excluded_note": "Paced records 102/104/107/217 excluded; Q class excluded (15 beats in total).",
+    "train_counts": {
+      "F": 410,
+      "N": 45580,
+      "S": 905,
+      "V": 3669
+    },
+    "test_counts": {
+      "F": 382,
+      "N": 44007,
+      "S": 1818,
+      "V": 3134
+    },
+    "excluded_train": {
+      "unmatched_detection": 566,
+      "unsupported_label": 5,
+      "insufficient_history": 198,
+      "edge": 4
+    },
+    "excluded_test": {
+      "unmatched_detection": 57,
+      "unsupported_label": 6,
+      "insufficient_history": 198,
+      "edge": 6
+    }
+  },
+  "models": {
+    "rf": {
+      "available": true,
+      "test": {
+        "classes": [
+          "N",
+          "S",
+          "V",
+          "F"
+        ],
+        "n": 49341,
+        "accuracy": 0.9331793032163921,
+        "balanced_accuracy": 0.483310866001458,
+        "macro_f1": 0.4834787512058428,
+        "per_class": {
+          "N": {
+            "precision": 0.9487839771101574,
+            "sensitivity": 0.9795714318176654,
+            "specificity": 0.5637420322459693,
+            "f1": 0.9639319335435255,
+            "support": 44007,
+            "roc_auc_ovr": 0.9169299292288854
+          },
+          "S": {
+            "precision": 0.34806629834254144,
+            "sensitivity": 0.034653465346534656,
+            "specificity": 0.9975169917724049,
+            "f1": 0.06303151575787894,
+            "support": 1818,
+            "roc_auc_ovr": 0.8829882372745828
+          },
+          "V": {
+            "precision": 0.8933125972006221,
+            "sensitivity": 0.9164007657945118,
+            "specificity": 0.9925768822905621,
+            "f1": 0.9047094030555993,
+            "support": 3134,
+            "roc_auc_ovr": 0.9965815921524803
+          },
+          "F": {
+            "precision": 0.00196078431372549,
+            "sensitivity": 0.002617801047120419,
+            "specificity": 0.9896035458240569,
+            "f1": 0.002242152466367713,
+            "support": 382,
+            "roc_auc_ovr": 0.9226453933192739
+          }
+        },
+        "confusion_matrix": [
+          [
+            43108,
+            104,
+            286,
+            509
+          ],
+          [
+            1711,
+            63,
+            44,
+            0
+          ],
+          [
+            248,
+            14,
+            2872,
+            0
+          ],
+          [
+            368,
+            0,
+            13,
+            1
+          ]
+        ],
+        "roc_auc_ovr_macro": 0.9297862879938056
+      },
+      "cv_macro_f1": {
+        "folds": [
+          0.465866073050216,
+          0.43807855081393,
+          0.6341412877478916,
+          0.39416409387634377,
+          0.41019894083749675
+        ],
+        "mean": 0.46848978926517565,
+        "std": 0.08636466669412493
+      },
+      "fit_seconds": 1.749597010000798,
+      "latency": {
+        "single_beat_median_ms": 5.499073500686791,
+        "batch_per_beat_us": 5.830992600022,
+        "note": "single-threaded, on the training machine's CPU"
+      },
+      "size_bytes": 11033770,
+      "n_train": 50564,
+      "n_test": 49341,
+      "params": {
+        "n_estimators": 300,
+        "max_depth": null,
+        "min_samples_leaf": 2,
+        "class_weight": "balanced_subsample"
+      },
+      "importance": {
+        "method": "permutation importance (drop in macro-F1 on held-out DS2 beats)",
+        "n_samples": 6003,
+        "n_repeats": 5,
+        "baseline_macro_f1": 0.49021218448185794,
+        "permutation": [
+          {
+            "feature": "rr_ratio",
+            "mean": 0.033065886645600395,
+            "std": 0.0019801240626500334
+          },
+          {
+            "feature": "rr_prev_s",
+            "mean": 0.031742243299429915,
+            "std": 0.0037983384825459577
+          },
+          {
+            "feature": "template_corr",
+            "mean": 0.026828528952117413,
+            "std": 0.003730207190313407
+          },
+          {
+            "feature": "r_amp_mv",
+            "mean": 0.014378109403324823,
+            "std": 0.004000681109807302
+          },
+          {
+            "feature": "qrs_energy",
+            "mean": 0.01190491410769461,
+            "std": 0.0024411192086810063
+          },
+          {
+            "feature": "s_amp_mv",
+            "mean": 0.010705012254318835,
+            "std": 0.006373245294312156
+          },
+          {
+            "feature": "q_amp_mv",
+            "mean": 0.009845681937073091,
+            "std": 0.003946033807497155
+          },
+          {
+            "feature": "rr_local_mean_s",
+            "mean": 0.009096152136897817,
+            "std": 0.0036955416010613826
+          },
+          {
+            "feature": "rr_local_rmssd_s",
+            "mean": 0.00898517868384575,
+            "std": 0.004486066800132398
+          },
+          {
+            "feature": "rr_local_std_s",
+            "mean": 0.008062047893052616,
+            "std": 0.002067536915498813
+          },
+          {
+            "feature": "local_noise_mv",
+            "mean": 0.007131935854675553,
+            "std": 0.0038269118225011203
+          },
+          {
+            "feature": "qrs_width_s",
+            "mean": 0.005959656489756726,
+            "std": 0.00339280717511878
+          },
+          {
+            "feature": "hr_local_bpm",
+            "mean": 0.00483590522403401,
+            "std": 0.0019024026024357832
+          },
+          {
+            "feature": "rr_prev2_s",
+            "mean": 0.003153726666839984,
+            "std": 0.0016752717325418942
+          },
+          {
+            "feature": "post_r_max_mv",
+            "mean": -0.030656875798389705,
+            "std": 0.006007277431521848
+          }
+        ],
+        "impurity": [
+          {
+            "feature": "rr_prev_s",
+            "value": 0.13769287525331456
+          },
+          {
+            "feature": "rr_ratio",
+            "value": 0.13501281472918317
+          },
+          {
+            "feature": "post_r_max_mv",
+            "value": 0.09015136458726725
+          },
+          {
+            "feature": "template_corr",
+            "value": 0.08470583848321597
+          },
+          {
+            "feature": "qrs_width_s",
+            "value": 0.07819925909562762
+          },
+          {
+            "feature": "hr_local_bpm",
+            "value": 0.0643852975927522
+          },
+          {
+            "feature": "rr_local_mean_s",
+            "value": 0.06322281245789617
+          },
+          {
+            "feature": "r_amp_mv",
+            "value": 0.06289587682916417
+          },
+          {
+            "feature": "qrs_energy",
+            "value": 0.06044899335982246
+          },
+          {
+            "feature": "local_noise_mv",
+            "value": 0.051334570018889476
+          },
+          {
+            "feature": "rr_local_rmssd_s",
+            "value": 0.042991010979972794
+          },
+          {
+            "feature": "s_amp_mv",
+            "value": 0.03860761191249076
+          },
+          {
+            "feature": "rr_prev2_s",
+            "value": 0.03191717934497091
+          },
+          {
+            "feature": "rr_local_std_s",
+            "value": 0.03149793224531372
+          },
+          {
+            "feature": "q_amp_mv",
+            "value": 0.02693656311011874
+          }
+        ],
+        "note": "Importance reflects model reliance on a feature, not a causal or physiological mechanism."
+      }
+    },
+    "xgb": {
+      "available": true,
+      "test": {
+        "classes": [
+          "N",
+          "S",
+          "V",
+          "F"
+        ],
+        "n": 49341,
+        "accuracy": 0.8982793214568007,
+        "balanced_accuracy": 0.5269738795846579,
+        "macro_f1": 0.5020440040251367,
+        "per_class": {
+          "N": {
+            "precision": 0.9525219120741889,
+            "sensitivity": 0.935942009225805,
+            "specificity": 0.6151106111736033,
+            "f1": 0.9441591784338896,
+            "support": 44007,
+            "roc_auc_ovr": 0.8815144996574794
+          },
+          "S": {
+            "precision": 0.24659090909090908,
+            "sensitivity": 0.11936193619361936,
+            "specificity": 0.9860488605517328,
+            "f1": 0.1608598962194218,
+            "support": 1818,
+            "roc_auc_ovr": 0.7878398617800884
+          },
+          "V": {
+            "precision": 0.7946725860155383,
+            "sensitivity": 0.9138481174218251,
+            "specificity": 0.9839851104810959,
+            "f1": 0.8501038883941823,
+            "support": 3134,
+            "roc_auc_ovr": 0.9947358429201166
+          },
+          "F": {
+            "precision": 0.0327970297029703,
+            "sensitivity": 0.1387434554973822,
+            "specificity": 0.9680753283359546,
+            "f1": 0.05305305305305305,
+            "support": 382,
+            "roc_auc_ovr": 0.9358105387679337
+          }
+        },
+        "confusion_matrix": [
+          [
+            41188,
+            616,
+            669,
+            1534
+          ],
+          [
+            1553,
+            217,
+            48,
+            0
+          ],
+          [
+            195,
+            46,
+            2864,
+            29
+          ],
+          [
+            305,
+            1,
+            23,
+            53
+          ]
+        ],
+        "roc_auc_ovr_macro": 0.8999751857814046
+      },
+      "cv_macro_f1": {
+        "folds": [
+          0.4512389972910652,
+          0.45283185204204357,
+          0.6557573624059962,
+          0.3861480809364556,
+          0.432943266089334
+        ],
+        "mean": 0.4757839117529789,
+        "std": 0.09315534970995219
+      },
+      "fit_seconds": 3.545716034999714,
+      "latency": {
+        "single_beat_median_ms": 0.26929799969366286,
+        "batch_per_beat_us": 1.8310350002138875,
+        "note": "single-threaded, on the training machine's CPU"
+      },
+      "size_bytes": 1342677,
+      "n_train": 50564,
+      "n_test": 49341,
+      "params": {
+        "n_estimators": 400,
+        "max_depth": 6,
+        "learning_rate": 0.1,
+        "subsample": 0.8,
+        "colsample_bytree": 0.8
+      },
+      "importance": {
+        "method": "permutation importance (drop in macro-F1 on held-out DS2 beats)",
+        "n_samples": 6003,
+        "n_repeats": 5,
+        "baseline_macro_f1": 0.5107700499837571,
+        "permutation": [
+          {
+            "feature": "rr_ratio",
+            "mean": 0.03806333777950649,
+            "std": 0.003906805548279336
+          },
+          {
+            "feature": "rr_prev_s",
+            "mean": 0.03443748173675607,
+            "std": 0.008901387767811556
+          },
+          {
+            "feature": "template_corr",
+            "mean": 0.02967934577014153,
+            "std": 0.00514191010416366
+          },
+          {
+            "feature": "qrs_energy",
+            "mean": 0.023442810050386908,
+            "std": 0.0012266900508053663
+          },
+          {
+            "feature": "r_amp_mv",
+            "mean": 0.017638973286817527,
+            "std": 0.0011635617663163043
+          },
+          {
+            "feature": "s_amp_mv",
+            "mean": 0.017196103100730442,
+            "std": 0.006931101689670182
+          },
+          {
+            "feature": "local_noise_mv",
+            "mean": 0.013468197216790444,
+            "std": 0.0029196352729206265
+          },
+          {
+            "feature": "hr_local_bpm",
+            "mean": 0.010696396433530176,
+            "std": 0.004924359782332986
+          },
+          {
+            "feature": "rr_local_mean_s",
+            "mean": 0.010278973888576948,
+            "std": 0.005027446617911121
+          },
+          {
+            "feature": "rr_local_std_s",
+            "mean": 0.009170348424952336,
+            "std": 0.002300109508447134
+          },
+          {
+            "feature": "rr_prev2_s",
+            "mean": 0.006979426349231222,
+            "std": 0.003238544823486524
+          },
+          {
+            "feature": "q_amp_mv",
+            "mean": 0.004899199681886501,
+            "std": 0.004588515671328573
+          },
+          {
+            "feature": "qrs_width_s",
+            "mean": 0.0008398907421224954,
+            "std": 0.00216287501904943
+          },
+          {
+            "feature": "rr_local_rmssd_s",
+            "mean": -0.004275058267059451,
+            "std": 0.004092007416037713
+          },
+          {
+            "feature": "post_r_max_mv",
+            "mean": -0.008866857742258172,
+            "std": 0.005093767586381663
+          }
+        ],
+        "impurity": [
+          {
+            "feature": "qrs_width_s",
+            "value": 0.16323083639144897
+          },
+          {
+            "feature": "rr_prev_s",
+            "value": 0.1366819143295288
+          },
+          {
+            "feature": "rr_local_mean_s",
+            "value": 0.12391585856676102
+          },
+          {
+            "feature": "rr_ratio",
+            "value": 0.09049086272716522
+          },
+          {
+            "feature": "template_corr",
+            "value": 0.0900426134467125
+          },
+          {
+            "feature": "r_amp_mv",
+            "value": 0.08031226694583893
+          },
+          {
+            "feature": "hr_local_bpm",
+            "value": 0.07257349044084549
+          },
+          {
+            "feature": "post_r_max_mv",
+            "value": 0.06966236978769302
+          },
+          {
+            "feature": "qrs_energy",
+            "value": 0.04186832532286644
+          },
+          {
+            "feature": "local_noise_mv",
+            "value": 0.03252173960208893
+          },
+          {
+            "feature": "rr_local_rmssd_s",
+            "value": 0.024186383932828903
+          },
+          {
+            "feature": "s_amp_mv",
+            "value": 0.023712608963251114
+          },
+          {
+            "feature": "rr_local_std_s",
+            "value": 0.01863379403948784
+          },
+          {
+            "feature": "q_amp_mv",
+            "value": 0.016097426414489746
+          },
+          {
+            "feature": "rr_prev2_s",
+            "value": 0.016069501638412476
+          }
+        ],
+        "note": "Importance reflects model reliance on a feature, not a causal or physiological mechanism."
+      }
+    },
+    "cnn": {
+      "available": true,
+      "test": {
+        "classes": [
+          "N",
+          "S",
+          "V",
+          "F"
+        ],
+        "n": 49341,
+        "accuracy": 0.7741634745951642,
+        "balanced_accuracy": 0.7133910198205494,
+        "macro_f1": 0.5960386853616684,
+        "per_class": {
+          "N": {
+            "precision": 0.977578346761476,
+            "sensitivity": 0.7747631058695208,
+            "specificity": 0.8533933258342707,
+            "f1": 0.8644338522387303,
+            "support": 44007,
+            "roc_auc_ovr": 0.908502694235959
+          },
+          "S": {
+            "precision": 0.6647546207775653,
+            "sensitivity": 0.5737073707370737,
+            "specificity": 0.9889316751888559,
+            "f1": 0.6158842633599055,
+            "support": 1818,
+            "roc_auc_ovr": 0.9501026507759881
+          },
+          "V": {
+            "precision": 0.815326995102276,
+            "sensitivity": 0.9029993618379069,
+            "specificity": 0.9861276429978142,
+            "f1": 0.8569265707797123,
+            "support": 3134,
+            "roc_auc_ovr": 0.9870900238071599
+          },
+          "F": {
+            "precision": 0.02440577249575552,
+            "sensitivity": 0.6020942408376964,
+            "specificity": 0.8122102167119426,
+            "f1": 0.04691005506832552,
+            "support": 382,
+            "roc_auc_ovr": 0.8227930646959754
+          }
+        },
+        "confusion_matrix": [
+          [
+            34095,
+            381,
+            462,
+            9069
+          ],
+          [
+            646,
+            1043,
+            46,
+            83
+          ],
+          [
+            118,
+            144,
+            2830,
+            42
+          ],
+          [
+            18,
+            1,
+            133,
+            230
+          ]
+        ],
+        "roc_auc_ovr_macro": 0.9171221083787706
+      },
+      "cv_macro_f1": {
+        "mean": null,
+        "std": null,
+        "folds": [],
+        "note": "not run for this model (CPU budget); early stopping used 4 DS1 validation records"
+      },
+      "fit_seconds": 9.708454157998858,
+      "latency": {
+        "single_beat_median_ms": 0.10298750021320302,
+        "note": "single-threaded, on the training machine's CPU"
+      },
+      "size_bytes": 33140,
+      "n_train": 50564,
+      "n_test": 49341,
+      "training_history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.6431627656757702,
+          "val_macro_f1": 0.32146437679494605,
+          "seconds": 0.8314261060004355
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.2882712050963189,
+          "val_macro_f1": 0.32599724468650004,
+          "seconds": 0.8311214109999128
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.2073963662581126,
+          "val_macro_f1": 0.31224423747367436,
+          "seconds": 1.005649827000525
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.1748388531908054,
+          "val_macro_f1": 0.31174592103237636,
+          "seconds": 0.9013154669992218
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.1526630937550721,
+          "val_macro_f1": 0.3007398558738558,
+          "seconds": 0.9310823970008641
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.1429880363627179,
+          "val_macro_f1": 0.3534819977309376,
+          "seconds": 0.9225576359986007
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.13168507342472605,
+          "val_macro_f1": 0.30414963961661534,
+          "seconds": 0.9071163680000609
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.12353571916263292,
+          "val_macro_f1": 0.29060604591765904,
+          "seconds": 1.038909519000299
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.11768167535006628,
+          "val_macro_f1": 0.2892085294868851,
+          "seconds": 0.893885337998654
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.10643373851415583,
+          "val_macro_f1": 0.2893652983148117,
+          "seconds": 0.8778870559999632
+        }
+      ],
+      "params": {
+        "channels": [
+          16,
+          32,
+          32
+        ],
+        "kernels": [
+          7,
+          5,
+          3
+        ],
+        "hidden": 32,
+        "dropout": 0.2,
+        "epochs": 20,
+        "batch_size": 256,
+        "lr": 0.001,
+        "weight_decay": 0.0001,
+        "patience": 4
+      }
+    },
+    "hybrid": {
+      "available": true,
+      "test": {
+        "classes": [
+          "N",
+          "S",
+          "V",
+          "F"
+        ],
+        "n": 49341,
+        "accuracy": 0.9249508522324233,
+        "balanced_accuracy": 0.7328688041209781,
+        "macro_f1": 0.6539121548092663,
+        "per_class": {
+          "N": {
+            "precision": 0.9753703834143364,
+            "sensitivity": 0.9439861840161793,
+            "specificity": 0.8033370828646419,
+            "f1": 0.9594216956511697,
+            "support": 44007,
+            "roc_auc_ovr": 0.9558495840927377
+          },
+          "S": {
+            "precision": 0.5988483685220729,
+            "sensitivity": 0.5148514851485149,
+            "specificity": 0.9868063884855754,
+            "f1": 0.5536823425022183,
+            "support": 1818,
+            "roc_auc_ovr": 0.9336554817866316
+          },
+          "V": {
+            "precision": 0.9166408428881314,
+            "sensitivity": 0.9438417358008935,
+            "specificity": 0.9941783712424525,
+            "f1": 0.9300424461562647,
+            "support": 3134,
+            "roc_auc_ovr": 0.9972990911890637
+          },
+          "F": {
+            "precision": 0.10306122448979592,
+            "sensitivity": 0.5287958115183246,
+            "specificity": 0.9640924038481178,
+            "f1": 0.17250213492741248,
+            "support": 382,
+            "roc_auc_ovr": 0.9412821541349536
+          }
+        },
+        "confusion_matrix": [
+          [
+            41542,
+            594,
+            131,
+            1740
+          ],
+          [
+            831,
+            936,
+            43,
+            8
+          ],
+          [
+            133,
+            33,
+            2958,
+            10
+          ],
+          [
+            85,
+            0,
+            95,
+            202
+          ]
+        ],
+        "roc_auc_ovr_macro": 0.9570215778008466
+      },
+      "cv_macro_f1": {
+        "mean": null,
+        "std": null,
+        "folds": [],
+        "note": "not run for this model (CPU budget); early stopping used 4 DS1 validation records"
+      },
+      "fit_seconds": 6.602927650999845,
+      "latency": {
+        "single_beat_median_ms": 0.3932095005438896,
+        "note": "single-threaded, on the training machine's CPU"
+      },
+      "size_bytes": 1125719,
+      "n_train": 50564,
+      "n_test": 49341,
+      "caveat": "Embeddings for training beats come from the CNN trained on those beats; DS2 stays unseen.",
+      "params": {
+        "xgb": {
+          "n_estimators": 400,
+          "max_depth": 6,
+          "learning_rate": 0.1,
+          "subsample": 0.8,
+          "colsample_bytree": 0.8
+        },
+        "cnn": {
+          "channels": [
+            16,
+            32,
+            32
+          ],
+          "kernels": [
+            7,
+            5,
+            3
+          ],
+          "hidden": 32,
+          "dropout": 0.2,
+          "epochs": 20,
+          "batch_size": 256,
+          "lr": 0.001,
+          "weight_decay": 0.0001,
+          "patience": 4
+        }
+      }
+    }
+  },
+  "rpeak_detection": {
+    "DS1": {
+      "tp": 50763,
+      "fp": 574,
+      "fn": 258,
+      "sensitivity": 0.9949432586581995,
+      "ppv": 0.9888189804624345,
+      "f1": 0.9918716661130542,
+      "per_record": {
+        "101": {
+          "tp": 1864,
+          "fp": 4,
+          "fn": 1,
+          "sensitivity": 0.9994638069705094,
+          "ppv": 0.9978586723768736,
+          "f1": 0.9986605946959549
+        },
+        "106": {
+          "tp": 2026,
+          "fp": 0,
+          "fn": 1,
+          "sensitivity": 0.9995066600888012,
+          "ppv": 1.0,
+          "f1": 0.999753269183321
+        },
+        "108": {
+          "tp": 1752,
+          "fp": 172,
+          "fn": 11,
+          "sensitivity": 0.9937606352807714,
+          "ppv": 0.9106029106029107,
+          "f1": 0.950366151342555
+        },
+        "109": {
+          "tp": 2529,
+          "fp": 0,
+          "fn": 3,
+          "sensitivity": 0.9988151658767772,
+          "ppv": 1.0,
+          "f1": 0.999407231772377
+        },
+        "112": {
+          "tp": 2539,
+          "fp": 0,
+          "fn": 0,
+          "sensitivity": 1.0,
+          "ppv": 1.0,
+          "f1": 1.0
+        },
+        "114": {
+          "tp": 1878,
+          "fp": 0,
+          "fn": 1,
+          "sensitivity": 0.9994678020223523,
+          "ppv": 1.0,
+          "f1": 0.9997338301836572
+        },
+        "115": {
+          "tp": 1953,
+          "fp": 0,
+          "fn": 0,
+          "sensitivity": 1.0,
+          "ppv": 1.0,
+          "f1": 1.0
+        },
+        "116": {
+          "tp": 2388,
+          "fp": 2,
+          "fn": 24,
+          "sensitivity": 0.9900497512437811,
+          "ppv": 0.999163179916318,
+          "f1": 0.9945855893377761
+        },
+        "118": {
+          "tp": 2278,
+          "fp": 0,
+          "fn": 0,
+          "sensitivity": 1.0,
+          "ppv": 1.0,
+          "f1": 1.0
+        },
+        "119": {
+          "tp": 1987,
+          "fp": 3,
+          "fn": 0,
+          "sensitivity": 1.0,
+          "ppv": 0.9984924623115577,
+          "f1": 0.9992456625597184
+        },
+        "122": {
+          "tp": 2476,
+          "fp": 0,
+          "fn": 0,
+          "sensitivity": 1.0,
+          "ppv": 1.0,
+          "f1": 1.0
+        },
+        "124": {
+          "tp": 1612,
+          "fp": 1,
+          "fn": 7,
+          "sensitivity": 0.9956763434218654,
+          "ppv": 0.9993800371977681,
+          "f1": 0.9975247524752475
+        },
+        "201": {
+          "tp": 1925,
+          "fp": 0,
+          "fn": 38,
+          "sensitivity": 0.9806418746816098,
+          "ppv": 1.0,
+          "f1": 0.9902263374485597
+        },
+        "203": {
+          "tp": 2853,
+          "fp": 27,
+          "fn": 127,
+          "sensitivity": 0.9573825503355705,
+          "ppv": 0.990625,
+          "f1": 0.9737201365187713
+        },
+        "205": {
+          "tp": 2651,
+          "fp": 0,
+          "fn": 5,
+          "sensitivity": 0.9981174698795181,
+          "ppv": 1.0,
+          "f1": 0.9990578481251178
+        },
+        "207": {
+          "tp": 1854,
+          "fp": 362,
+          "fn": 6,
+          "sensitivity": 0.9967741935483871,
+          "ppv": 0.8366425992779783,
+          "f1": 0.9097154072620216
+        },
+        "208": {
+          "tp": 2931,
+          "fp": 2,
+          "fn": 24,
+          "sensitivity": 0.9918781725888325,
+          "ppv": 0.9993181043300375,
+          "f1": 0.9955842391304348
+        },
+        "209": {
+          "tp": 3005,
+          "fp": 1,
+          "fn": 0,
+          "sensitivity": 1.0,
+          "ppv": 0.9996673320026613,
+          "f1": 0.9998336383297288
+        },
+        "215": {
+          "tp": 3361,
+          "fp": 0,
+          "fn": 2,
+          "sensitivity": 0.9994052928932501,
+          "ppv": 1.0,
+          "f1": 0.9997025580011898
+        },
+        "220": {
+          "tp": 2048,
+          "fp": 0,
+          "fn": 0,
+          "sensitivity": 1.0,
+          "ppv": 1.0,
+          "f1": 1.0
+        },
+        "223": {
+          "tp": 2597,
+          "fp": 0,
+          "fn": 8,
+          "sensitivity": 0.9969289827255279,
+          "ppv": 1.0,
+          "f1": 0.9984621299500193
+        },
+        "230": {
+          "tp": 2256,
+          "fp": 0,
+          "fn": 0,
+          "sensitivity": 1.0,
+          "ppv": 1.0,
+          "f1": 1.0
+        }
+      },
+      "mode": "causal (live) filtering and detection, 150 ms tolerance"
+    },
+    "DS2": {
+      "tp": 49549,
+      "fp": 59,
+      "fn": 163,
+      "sensitivity": 0.9967211136144191,
+      "ppv": 0.9988106756974682,
+      "f1": 0.9977648006443818,
+      "per_record": {
+        "100": {
+          "tp": 2273,
+          "fp": 0,
+          "fn": 0,
+          "sensitivity": 1.0,
+          "ppv": 1.0,
+          "f1": 1.0
+        },
+        "103": {
+          "tp": 2082,
+          "fp": 0,
+          "fn": 2,
+          "sensitivity": 0.9990403071017274,
+          "ppv": 1.0,
+          "f1": 0.99951992318771
+        },
+        "105": {
+          "tp": 2552,
+          "fp": 39,
+          "fn": 20,
+          "sensitivity": 0.9922239502332815,
+          "ppv": 0.9849478965650328,
+          "f1": 0.988572535347666
+        },
+        "111": {
+          "tp": 2123,
+          "fp": 0,
+          "fn": 1,
+          "sensitivity": 0.9995291902071564,
+          "ppv": 1.0,
+          "f1": 0.9997645396750647
+        },
+        "113": {
+          "tp": 1794,
+          "fp": 0,
+          "fn": 1,
+          "sensitivity": 0.9994428969359331,
+          "ppv": 1.0,
+          "f1": 0.9997213708553914
+        },
+        "117": {
+          "tp": 1535,
+          "fp": 0,
+          "fn": 0,
+          "sensitivity": 1.0,
+          "ppv": 1.0,
+          "f1": 1.0
+        },
+        "121": {
+          "tp": 1862,
+          "fp": 0,
+          "fn": 1,
+          "sensitivity": 0.9994632313472893,
+          "ppv": 1.0,
+          "f1": 0.9997315436241611
+        },
+        "123": {
+          "tp": 1515,
+          "fp": 0,
+          "fn": 3,
+          "sensitivity": 0.9980237154150198,
+          "ppv": 1.0,
+          "f1": 0.9990108803165183
+        },
+        "200": {
+          "tp": 2597,
+          "fp": 1,
+          "fn": 4,
+          "sensitivity": 0.9984621299500193,
+          "ppv": 0.9996150885296382,
+          "f1": 0.9990382765916523
+        },
+        "202": {
+          "tp": 2130,
+          "fp": 0,
+          "fn": 6,
+          "sensitivity": 0.9971910112359551,
+          "ppv": 1.0,
+          "f1": 0.9985935302390998
+        },
+        "210": {
+          "tp": 2590,
+          "fp": 3,
+          "fn": 60,
+          "sensitivity": 0.9773584905660377,
+          "ppv": 0.998843038951022,
+          "f1": 0.9879839786381843
+        },
+        "212": {
+          "tp": 2748,
+          "fp": 0,
+          "fn": 0,
+          "sensitivity": 1.0,
+          "ppv": 1.0,
+          "f1": 1.0
+        },
+        "213": {
+          "tp": 3248,
+          "fp": 0,
+          "fn": 3,
+          "sensitivity": 0.9990772070132267,
+          "ppv": 1.0,
+          "f1": 0.9995383905216186
+        },
+        "214": {
+          "tp": 2259,
+          "fp": 0,
+          "fn": 3,
+          "sensitivity": 0.9986737400530504,
+          "ppv": 1.0,
+          "f1": 0.9993364299933643
+        },
+        "219": {
+          "tp": 2149,
+          "fp": 0,
+          "fn": 5,
+          "sensitivity": 0.9976787372330548,
+          "ppv": 1.0,
+          "f1": 0.9988380199860563
+        },
+        "221": {
+          "tp": 2418,
+          "fp": 0,
+          "fn": 9,
+          "sensitivity": 0.9962917181705809,
+          "ppv": 1.0,
+          "f1": 0.998142414860681
+        },
+        "222": {
+          "tp": 2455,
+          "fp": 3,
+          "fn": 28,
+          "sensitivity": 0.9887233185662505,
+          "ppv": 0.9987794955248169,
+          "f1": 0.993725966403562
+        },
+        "228": {
+          "tp": 2040,
+          "fp": 9,
+          "fn": 13,
+          "sensitivity": 0.9936678032148076,
+          "ppv": 0.9956076134699854,
+          "f1": 0.9946367625548513
+        },
+        "231": {
+          "tp": 1571,
+          "fp": 0,
+          "fn": 0,
+          "sensitivity": 1.0,
+          "ppv": 1.0,
+          "f1": 1.0
+        },
+        "232": {
+          "tp": 1780,
+          "fp": 4,
+          "fn": 0,
+          "sensitivity": 1.0,
+          "ppv": 0.9977578475336323,
+          "f1": 0.9988776655443322
+        },
+        "233": {
+          "tp": 3076,
+          "fp": 0,
+          "fn": 3,
+          "sensitivity": 0.9990256576810653,
+          "ppv": 1.0,
+          "f1": 0.9995125913891146
+        },
+        "234": {
+          "tp": 2752,
+          "fp": 0,
+          "fn": 1,
+          "sensitivity": 0.9996367598982928,
+          "ppv": 1.0,
+          "f1": 0.9998183469573115
+        }
+      },
+      "mode": "causal (live) filtering and detection, 150 ms tolerance"
+    }
+  },
+  "rules": {
+    "description": "Rule applied to detected beats vs the same rule applied to reference-annotated beats",
+    "window_s": 60.0,
+    "thresholds": {
+      "brady_bpm": 50.0,
+      "tachy_bpm": 100.0,
+      "min_duration_s": 10.0
+    },
+    "records": [
+      "100",
+      "103",
+      "105",
+      "111",
+      "113",
+      "117",
+      "121",
+      "123",
+      "200",
+      "202",
+      "210",
+      "212",
+      "213",
+      "214",
+      "219",
+      "221",
+      "222",
+      "228",
+      "231",
+      "232",
+      "233",
+      "234"
+    ],
+    "windows": 660,
+    "agreement": 0.9939393939393939,
+    "confusion": {
+      "possible_elevated_heart_rate": {
+        "possible_elevated_heart_rate": 31,
+        "possible_low_heart_rate": 0,
+        "no_configured_flag": 1,
+        "insufficient_data": 0
+      },
+      "possible_low_heart_rate": {
+        "possible_elevated_heart_rate": 0,
+        "possible_low_heart_rate": 24,
+        "no_configured_flag": 1,
+        "insufficient_data": 0
+      },
+      "no_configured_flag": {
+        "possible_elevated_heart_rate": 0,
+        "possible_low_heart_rate": 1,
+        "no_configured_flag": 600,
+        "insufficient_data": 1
+      },
+      "insufficient_data": {
+        "possible_elevated_heart_rate": 0,
+        "possible_low_heart_rate": 0,
+        "no_configured_flag": 0,
+        "insufficient_data": 1
+      }
+    },
+    "note": "Reference-derived flags, not clinical tachycardia/bradycardia labels."
+  },
+  "seed_variance": {
+    "seeds": [
+      1,
+      2,
+      3
+    ],
+    "note": "DS2 metrics per training seed; spread shows run-to-run variance.",
+    "models": {
+      "cnn": {
+        "runs": [
+          {
+            "seed": 1,
+            "macro_f1": 0.42625309977196996,
+            "N_sensitivity": 0.963733042470516,
+            "S_sensitivity": 0.012651265126512651,
+            "V_sensitivity": 0.8704530950861519,
+            "F_sensitivity": 0.0
+          },
+          {
+            "seed": 2,
+            "macro_f1": 0.5323146485314303,
+            "N_sensitivity": 0.958756561456132,
+            "S_sensitivity": 0.28437843784378436,
+            "V_sensitivity": 0.8580089342693044,
+            "F_sensitivity": 0.002617801047120419
+          },
+          {
+            "seed": 3,
+            "macro_f1": 0.5627241362418304,
+            "N_sensitivity": 0.9943190856000181,
+            "S_sensitivity": 0.25357535753575355,
+            "V_sensitivity": 0.8809827696234843,
+            "F_sensitivity": 0.0
+          }
+        ],
+        "macro_f1_mean": 0.5070972948484102,
+        "macro_f1_std": 0.07164511249115593
+      },
+      "hybrid": {
+        "runs": [
+          {
+            "seed": 1,
+            "macro_f1": 0.5821957434708739,
+            "N_sensitivity": 0.973436044265685,
+            "S_sensitivity": 0.27887788778877887,
+            "V_sensitivity": 0.9326738991703892,
+            "F_sensitivity": 0.10471204188481675
+          },
+          {
+            "seed": 2,
+            "macro_f1": 0.5446751977464022,
+            "N_sensitivity": 0.9737314518144841,
+            "S_sensitivity": 0.2403740374037404,
+            "V_sensitivity": 0.8902361199744735,
+            "F_sensitivity": 0.010471204188481676
+          },
+          {
+            "seed": 3,
+            "macro_f1": 0.566599677081876,
+            "N_sensitivity": 0.9865248710432432,
+            "S_sensitivity": 0.2601760176017602,
+            "V_sensitivity": 0.9365028717294193,
+            "F_sensitivity": 0.0
+          }
+        ],
+        "macro_f1_mean": 0.5644902060997173,
+        "macro_f1_std": 0.018849011611593067
+      }
+    }
+  }
+}
